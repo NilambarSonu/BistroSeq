@@ -795,7 +795,7 @@ function Navbar() {
           <a className="hidden transition hover:text-primary sm:inline" href="#how-it-works">
             Process
           </a>
-          <a className="btn-ghost flex items-center gap-2 px-3 py-2" href="https://github.com" target="_blank">
+          <a className="btn-ghost flex items-center gap-2 px-3 py-2" href="https://github/NilambarSonu.com" target="_blank">
             <Archive size={14} /> GitHub
           </a>
         </nav>
