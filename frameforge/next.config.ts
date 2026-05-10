@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export", // Static HTML export
   reactCompiler: true,
   // Ensure images are optimized or handled correctly if used
   images: {
