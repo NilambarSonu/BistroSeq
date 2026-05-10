@@ -1,6 +1,4 @@
 {
-  "root": "frameforge",
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "outputDirectory": ".next"
+  "buildCommand": "cd frameforge && npm install && npm run build",
+  "outputDirectory": "frameforge/.next"
 }
