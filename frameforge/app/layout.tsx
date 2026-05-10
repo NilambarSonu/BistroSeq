@@ -21,7 +21,7 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "VantaSeq - Premium Video to Image Sequence Converter",
+  title: "BistroSeq - Premium Video to Image Sequence Converter",
   description:
     "Extract premium PNG or JPEG image sequences from video entirely in your browser.",
 };

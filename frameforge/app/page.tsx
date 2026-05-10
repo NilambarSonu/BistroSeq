@@ -208,7 +208,7 @@ export default function Home() {
   const memoryWarning = estimatedMemory > 500 * 1024 * 1024;
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("vantaseq-settings");
+    const saved = window.localStorage.getItem("Bistroseq-settings");
     if (!saved) return;
     try {
       const parsed = JSON.parse(saved) as {
@@ -236,13 +236,13 @@ export default function Home() {
         if (typeof parsed.zipCompression === "boolean") setZipCompression(parsed.zipCompression);
       }, 0);
     } catch {
-      window.localStorage.removeItem("vantaseq-settings");
+      window.localStorage.removeItem("Bistroseq-settings");
     }
   }, []);
 
   useEffect(() => {
     window.localStorage.setItem(
-      "vantaseq-settings",
+      "Bistroseq-settings",
       JSON.stringify({
         fps,
         format,
@@ -623,7 +623,7 @@ export default function Home() {
     const downloadUrl = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = downloadUrl;
-    anchor.download = `vantaseq_${Date.now()}.zip`;
+    anchor.download = `Bistroseq_${Date.now()}.zip`;
     anchor.click();
     URL.revokeObjectURL(downloadUrl);
     toast.success("Download started");
@@ -1110,11 +1110,10 @@ function SettingsPanel(props: SettingsPanelProps) {
           <div className="flex flex-wrap gap-2">
             {fpsPresets.map((preset) => (
               <button
-                className={`px-3 py-1.5 text-xs font-bold transition-all border rounded ${
-                  props.fps === preset 
-                  ? "bg-primary text-white border-primary" 
-                  : "bg-white text-primary border-border hover:border-primary"
-                }`}
+                className={`px-3 py-1.5 text-xs font-bold transition-all border rounded ${props.fps === preset
+                    ? "bg-primary text-white border-primary"
+                    : "bg-white text-primary border-border hover:border-primary"
+                  }`}
                 key={preset}
                 onClick={() => props.onFps(preset)}
               >
@@ -1158,9 +1157,8 @@ function SettingsPanel(props: SettingsPanelProps) {
             {(["png", "jpeg"] as OutputFormat[]).map((option) => (
               <button
                 key={option}
-                className={`flex-1 py-2 text-sm font-bold uppercase tracking-widest transition rounded ${
-                  props.format === option ? "bg-primary text-white" : "text-text-secondary hover:bg-tertiary"
-                }`}
+                className={`flex-1 py-2 text-sm font-bold uppercase tracking-widest transition rounded ${props.format === option ? "bg-primary text-white" : "text-text-secondary hover:bg-tertiary"
+                  }`}
                 onClick={() => props.onFormat(option)}
               >
                 {option}
@@ -1396,7 +1394,7 @@ function DownloadCard({
       <p className="mt-4 max-w-md text-text-secondary">
         Chef has prepared <span className="font-bold text-primary">{frameCount.toLocaleString()} {format.toUpperCase()}</span> frames for you. Total estimated size: <span className="font-bold text-primary">{bytesToSize(size)}</span>.
       </p>
-      
+
       {zipProgress > 0 && (
         <div className="mt-8 w-full max-w-lg">
           <div className="progress-track mb-3">
@@ -1405,7 +1403,7 @@ function DownloadCard({
           <p className="font-mono-ui text-sm font-bold text-primary">Bundling ZIP: {zipProgress}%</p>
         </div>
       )}
-      
+
       <div className="mt-10 grid w-full max-w-2xl gap-4 sm:grid-cols-2">
         <button className="btn-primary py-4 text-lg" onClick={onDownload}>
           <Download size={22} /> Download ZIP
